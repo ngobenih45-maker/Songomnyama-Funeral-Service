@@ -428,3 +428,28 @@ css/* Contact Form Styling */
     flex-direction: column;
     gap: 30px;
 }
+css/* Floating Back to Top Button Styling */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #dfb76c; /* Soft Gold matching your corporate theme */
+    color: #0c1a30; /* Deep Navy */
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    z-index: 1000;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.back-to-top-btn:hover {
+    background-color: #0c1a30;
+    color: #dfb76c;
+    transform: translateY(-3px);
+}
