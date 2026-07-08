@@ -274,3 +274,9 @@ h2 {
     font-size: 14px;
 }
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 32px; }
+    .hero-content .slogan { font-size: 18px; }
+    .nav-links { display: none; } /* Kept simple for raw CSS template */
+}
