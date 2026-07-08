@@ -340,3 +340,91 @@ css/* Section Group Adjustments */
     margin-top: -15px;
     margin-bottom: 20px;
 }
+css/* Contact Form Styling */
+.contact-form-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e1e8ed;
+}
+
+.contact-form-container h3 {
+    font-size: 24px;
+    color: #0c1a30;
+    margin-bottom: 5px;
+}
+
+.form-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #0c1a30;
+    margin-bottom: 8px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="tel"],
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 15px;
+    color: #333333;
+    background-color: #fafafa;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: #dfb76c;
+    background-color: #ffffff;
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+/* Submit Button Style */
+.btn-submit {
+    width: 100%;
+    background-color: #0c1a30;
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #1a335c;
+}
+
+/* Right Column Adjustment Layout Box */
+.contact-details-box {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
