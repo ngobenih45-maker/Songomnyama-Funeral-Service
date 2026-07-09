@@ -302,3 +302,23 @@ document.querySelector('form').addEventListener('submit', function(e) {
 </script>
 </body>
 </html>
+css/* Forces cards to show the full image cleanly without cropping */
+.plan-card img, 
+.catering-card img, 
+.plans-container img {
+  width: 100% !important;      /* Lets the image match the card width */
+  height: auto !important;     /* Removes fixed heights so the full image scales naturally */
+  object-fit: contain !important; /* Prevents the browser from zooming/cropping into the image */
+  max-height: 250px;           /* Sets a clean, uniform limit so cards stay neat */
+  display: block;              /* Removes weird spacing gaps under images */
+  margin: 0 auto 15px auto;    /* Centers the image perfectly in the middle of the card */
+}
+
+/* Fixes card containers to expand and fit the full image dynamically */
+.plan-card, .catering-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto !important;     /* Allows the card to naturally grow with the full picture */
+  padding: 15px;
+}
