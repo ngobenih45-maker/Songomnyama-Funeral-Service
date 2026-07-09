@@ -466,3 +466,83 @@ img[alt*="catering"] {
     object-fit: contain;    /* This prevents any edge clipping by scaling the whole image into view */
     background-color: #f9f9f9; /* Optional: Provides a soft background container if images have unique shapes */
 }
+css/* Gallery Section Styles */
+.gallery-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.gallery-section h2 {
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* 3-Column Layout that drops to 2 and 1 on smaller phones */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Image Card Container */
+.gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    height: 250px;
+    background-color: #ddd; /* Fallback color */
+}
+
+/* Making images look uniform */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+/* Smooth zoom effect on hover */
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Dark elegant text overlay popping up on hover */
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-item:hover .gallery-overlay {
+    height: 100%;
+}
+
+.gallery-overlay span {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: 2px solid white;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
