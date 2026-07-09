@@ -577,3 +577,97 @@ css/* Gallery Section Styles */
     margin-bottom: 30px;
 }
 
+/* ==========================================
+   MOBILE RESPONSIVE MEDIA QUERIES 
+   ========================================== */
+
+/* This triggers automatically on all mobile devices and smaller screens */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Global Spacing Fixes */
+    body {
+        font-size: 15px;
+        line-height: 1.5;
+        overflow-x: hidden; /* Prevents awkward horizontal side-scrolling */
+    }
+    
+    container, .container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* 2. Navigation Menu Mobile Clean-up */
+    nav, .navbar {
+        padding: 10px 15px !important;
+        flex-direction: column; /* Stacks logo above the links */
+        gap: 10px;
+    }
+
+    nav ul, .nav-links {
+        display: flex;
+        flex-wrap: wrap; /* Keeps menu items from clipping off-screen */
+        justify-content: center;
+        gap: 12px;
+        padding: 0;
+    }
+
+    /* 3. Hero / Main First Page Text Sizing */
+    .hero-section {
+        padding: 80px 15px !important; /* Shinks padding so content fits */
+    }
+
+    .hero-section h1 {
+        font-size: 2rem !important; /* Reduces heading size so it does not break words */
+        line-height: 1.2;
+    }
+
+    .hero-tagline, .hero-section p {
+        font-size: 1.1rem !important;
+        margin-bottom: 25px;
+    }
+
+    /* 4. Section Headings Styling */
+    h2 {
+        font-size: 1.8rem !important;
+        margin-bottom: 15px;
+    }
+
+    /* 5. Custom Cover Plans Grid Layout Correction */
+    /* This forces the layout grids to turn into 1 straight clean column */
+    .plans-grid, .pricing-grid, .services-grid, .gallery-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important; 
+        gap: 20px !important;
+        padding: 0 10px;
+    }
+
+    /* 6. Card Containers Fix */
+    .plan-card, .pricing-card, .gallery-item {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        box-sizing: border-box;
+    }
+
+    /* 7. Contact Forms & Inputs */
+    form, .contact-container {
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        padding: 10px !important;
+    }
+
+    input, select, textarea, button {
+        width: 100% !important; /* Forces form fields to expand to screen width */
+        font-size: 16px !important; /* Prevents iOS Safari from forcefully zooming in on inputs */
+        box-sizing: border-box;
+    }
+
+    /* 8. Text Alignment for Contact info items */
+    .contact-info {
+        text-align: center;
+        margin-top: 25px;
+    }
+}
