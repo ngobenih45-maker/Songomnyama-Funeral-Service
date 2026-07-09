@@ -283,19 +283,3 @@ html<!-- Floating Back to Top Button -->
     <i class="fas fa-chevron-up"></i>
 </a>
 <script>
-document.querySelector('form').addEventListener('submit', function(e) {
-  e.preventDefault(); // Prevents default page refresh
-  
-  // Extract user details from the contact form
-  const name = document.querySelector('input[placeholder*="Full Name"]').value;
-  const phone = document.querySelector('input[placeholder*="Number"]').value;
-  const plan = document.querySelector('select').value;
-  const message = document.querySelector('textarea').value;
-  
-  // Format the text string beautifully for WhatsApp
-  const text = `Hello Songomnyama Team,\n\nI would like to make an enquiry.\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Plan of Interest:* ${plan}\n*Message:* ${message}`;
-  
-  // Encode URL characters safely and redirect dynamically
-  const encodedText = encodeURIComponent(text);
-  window.open(`https://wa.me{encodedText}`, '_blank');
-});
