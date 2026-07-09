@@ -1,510 +1,295 @@
-css/* ==========================================================================
-   1. GLOBAL SYSTEM SETUP & MODERN RESETS
+/* ==========================================================================
+   1. GLOBAL STYLES & RESET
    ========================================================================== */
-@import url('https://googleapis.com');
-
-:root {
-    --bg-primary: #ffffff;        /* Crisp Pristine White */
-    --bg-secondary: #f4f7fc;      /* Soft Light Blue-Grey for contrast sections */
-    --bg-light: #ffffff;          /* Clean White for structural cards */
-    --accent-gold: #c59b27;       /* Rich Radiant Gold */
-    --accent-gold-hover: #e0b336; /* Bright Gold for interaction highlights */
-    --accent-green: #25d366;      /* Vibrant WhatsApp Emerald Green */
-    --text-pure: #0c1a30;         /* Deep Corporate Navy for premium readability */
-    --text-muted: #4a5568;        /* Soft Charcoal for descriptive body copy */
-    --text-dark: #ffffff;         /* Pure White text for dark action buttons */
-    --font-main: 'Plus Jakarta Sans', sans-serif;
-    --border-glow: rgba(197, 155, 39, 0.15);
-    --shadow-premium: 0 10px 30px -10px rgba(12, 26, 48, 0.1);
-    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--font-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html {
     scroll-behavior: smooth;
-    background-color: var(--bg-primary);
-    color: var(--text-pure);
 }
 
 body {
-    min-height: 100vh;
+    background-color: #ffffff;
+    color: #333333;
+    line-height: 1.6;
     overflow-x: hidden;
-    line-height: 1.7;
 }
 
 .container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 20px;
 }
 
-/* Global Section Frameworks */
-.section {
-    padding: 100px 0;
-    position: relative;
-}
-
-.bg-light {
-    background-color: var(--bg-secondary);
+section {
+    padding: 80px 0;
 }
 
 h2 {
+    font-size: 2.5rem;
     text-align: center;
-    font-size: 40px;
-    font-weight: 700;
-    color: var(--text-pure);
-    letter-spacing: -1px;
-    margin-bottom: 8px;
+    color: #111111;
+    margin-bottom: 10px;
+    position: relative;
 }
 
-.divider {
-    width: 50px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent-gold), transparent);
-    margin: 0 auto 30px auto;
-    border-radius: 2px;
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #25D366; /* Elegant accent line */
+    margin: 15px auto 0 auto;
 }
 
 .section-subtitle {
     text-align: center;
-    color: var(--text-muted);
-    font-size: 16px;
-    max-width: 600px;
-    margin: -10px auto 50px auto;
+    color: #666666;
+    font-size: 1.1rem;
+    margin-bottom: 50px;
 }
 
 /* ==========================================================================
-   2. STICKY GLASSMORPHIC NAVIGATION BAR
+   2. NAVIGATION MENU
    ========================================================================== */
-.navbar {
-    background-color: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(12, 26, 48, 0.05);
-    padding: 18px 0;
+nav {
+    background-color: #1a1a1a;
+    padding: 15px 0;
     position: sticky;
     top: 0;
-    z-index: 10000;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.nav-container {
+nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    color: var(--text-pure);
-    font-size: 26px;
-    font-weight: 800;
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: bold;
     text-decoration: none;
-    letter-spacing: -0.5px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    letter-spacing: 1px;
 }
 
-.logo::after {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background-color: var(--accent-gold);
-    border-radius: 50%;
-}
-
-.nav-links {
+nav ul {
     display: flex;
     list-style: none;
-    align-items: center;
+    gap: 30px;
 }
 
-.nav-links li {
-    margin-left: 35px;
-}
-
-.nav-links a {
-    color: var(--text-muted);
+nav ul li a {
+    color: #cccccc;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: 500;
-    transition: var(--transition-smooth);
-    position: relative;
-    padding: 8px 0;
+    transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-    color: var(--accent-gold);
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--accent-gold);
-    transition: var(--transition-smooth);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
+nav ul li a:hover {
+    color: #25D366;
 }
 
 /* ==========================================================================
-   3. HIGH-END KINETIC HERO BANNER
+   3. HERO BANNER (FIRST PAGE WITH BACKGROUND COVER)
    ========================================================================== */
-.hero {
-    background: linear-gradient(135deg, rgba(12, 26, 48, 0.85) 40%, rgba(12, 26, 48, 0.6)), 
-                url('https://unsplash.com') no-repeat center center/cover;
-    height: 85vh;
-    display: flex;
-    align-items: center;
+.hero-section {
     position: relative;
-}
-
-.hero-overlay {
-    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 20px;
 }
 
 .hero-content {
     max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0 20px;
 }
 
-.hero-content h1 {
-    color: #ffffff; /* Stays white against the dark overlay */
-    font-size: 64px;
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -2px;
-    margin-bottom: 24px;
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
 
-.hero-content .slogan {
-    color: #ffd875; /* Bright Gold for maximum contrast against banner image */
-    font-size: 24px;
-    font-weight: 300;
+.hero-tagline {
+    font-size: 1.4rem;
     font-style: italic;
-    margin-bottom: 45px;
-    line-height: 1.5;
+    color: #f0f0f0;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
 
-/* Premium Buttons Architecture */
+/* Green WhatsApp Button Elements */
 .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 16px 36px;
+    display: inline-block;
+    background-color: #25D366;
+    color: #ffffff !important;
     text-decoration: none;
+    padding: 14px 35px;
+    font-size: 1.1rem;
+    font-weight: bold;
     border-radius: 50px;
-    font-weight: 600;
-    font-size: 16px;
-    transition: var(--transition-smooth);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    border: none;
+    cursor: pointer;
 }
 
-.btn-primary {
-    background: linear-gradient(135deg, var(--accent-gold), #b3861b);
-    color: var(--text-dark);
-    box-shadow: 0 10px 25px -5px rgba(197, 155, 39, 0.3);
-}
-
-.btn-primary:hover {
-    background: linear-gradient(135deg, var(--accent-gold-hover), var(--accent-gold));
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px -5px rgba(197, 155, 39, 0.4);
-}
-
-.btn-success {
-    background: linear-gradient(135deg, var(--accent-green), #1fad4e);
-    color: var(--text-dark);
-    box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.3);
-}
-
-.btn-success:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px -5px rgba(37, 211, 102, 0.4);
+.btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(18, 140, 126, 0.6);
 }
 
 /* ==========================================================================
-   4. ABOUT LUXURY SECTION
+   4. ABOUT US SECTION
    ========================================================================== */
 #about {
-    background-color: var(--bg-primary);
+    background-color: #ffffff;
 }
 
-#about p {
-    text-align: center;
-    max-width: 850px;
+.about-text {
+    max-width: 800px;
     margin: 0 auto;
-    font-size: 19px;
-    color: var(--text-muted);
-    font-weight: 400;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #444444;
     line-height: 1.8;
 }
 
 /* ==========================================================================
-   5. ELITE PACKAGES MATRIX (CASKETS & CATERING)
+   5. COVER & CATERING PLANS CARDS GID
    ========================================================================== */
-.group-title {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--text-pure);
-    margin: 60px 0 25px 0;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+#services {
+    background-color: #f9f9f9;
 }
 
-.pricing-grid {
+.plans-title-group {
+    font-size: 1.8rem;
+    color: #222222;
+    margin: 40px 0 20px 0;
+    text-align: center;
+}
+
+.plans-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    margin-top: 20px;
+    margin-bottom: 60px;
 }
 
-/* Structural Card Formats */
-.price-card {
-    background-color: var(--bg-light);
-    border: 1px solid rgba(12, 26, 48, 0.08);
-    border-radius: 16px;
-    padding: 35px;
+.plan-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eeeeee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: var(--shadow-premium);
-    position: relative;
-    transition: var(--transition-smooth);
 }
 
-.price-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--accent-gold);
-    box-shadow: 0 20px 40px -10px rgba(12, 26, 48, 0.15);
+.plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* Premium Highlight Feature Card */
-.price-card.featured {
-    border: 2px solid var(--accent-gold);
-    background: linear-gradient(180deg, var(--bg-light), rgba(197, 155, 39, 0.02));
-}
-
-.price-card .badge {
-    position: absolute;
-    top: -14px;
-    left: 30px;
-    background: linear-gradient(90deg, var(--accent-gold), #b3861b);
-    color: var(--text-dark);
-    padding: 4px 16px;
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    border-radius: 20px;
-    letter-spacing: 1px;
-}
-
-/* Image Framework Shaders */
-.image-placeholder {
-    background: #f7fafc;
-    border: 1px dashed rgba(12, 26, 48, 0.15);
-    border-radius: 12px;
-    height: 180px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 25px;
-    color: var(--text-muted);
-}
-
-.image-placeholder i {
-    font-size: 28px;
-    color: var(--accent-gold);
-    margin-bottom: 10px;
-}
-
-.image-placeholder p {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-
-.card-img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 25px;
-}
-
-/* Typography Inside Matrix */
-.card-header h3 {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--text-pure);
-    margin-bottom: 10px;
+.plan-card h3 {
+    font-size: 1.5rem;
+    color: #111111;
+    margin-bottom: 15px;
 }
 
 .price {
-    font-size: 42px;
-    font-weight: 800;
-    color: var(--text-pure);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: baseline;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin-bottom: 25px;
 }
 
 .price span {
-    font-size: 15px;
-    font-weight: 400;
-    color: var(--text-muted);
-    margin-left: 6px;
+    font-size: 1rem;
+    color: #666666;
+    font-weight: normal;
 }
 
-.joining-fee {
-    font-size: 13px;
-    font-weight: 600;
-    color: #ef4444; /* Standard red warning text */
-    margin-top: -15px;
-    margin-bottom: 25px;
-    background: rgba(239, 68, 68, 0.06);
-    display: inline-block;
-    padding: 2px 10px;
-    border-radius: 4px;
-}
-
-/* Bullet Items Styling */
-.card-features {
+.plan-card ul {
     list-style: none;
     text-align: left;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
-.card-features li {
-    font-size: 15px;
-    color: var(--text-muted);
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.plan-card ul li {
+    padding: 10px 0;
+    color: #555555;
+    border-bottom: 1px dashed #eeeeee;
 }
 
-.card-features li i {
-    color: var(--accent-gold);
-    font-size: 14px;
+.plan-card ul li::before {
+    content: "✓ ";
+    color: #25D366;
+    font-weight: bold;
 }
 
-/* Pricing Base Interaction Controls */
-.btn-card {
+.plan-card .btn {
     width: 100%;
-    border: 1px solid rgba(12, 26, 48, 0.15);
-    background: transparent;
-    color: var(--text-pure);
-    padding: 14px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    text-align: center;
-    transition: var(--transition-smooth);
+    padding: 12px 20px;
+    font-size: 1rem;
 }
 
-.btn-card:hover {
-    border-color: var(--accent-gold);
-    background: var(--accent-gold);
-    color: var(--text-dark);
+/* Highlight badge for Top Value */
+.top-value-badge {
+    background-color: #111111;
+    color: #ffffff;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 15px;
+    font-weight: bold;
 }
 
-.btn-card-featured {
-    width: 100%;
-   css/* Mobile Responsiveness for Screens under 768px */
-@media screen and (max-width: 768px) {
-  /* Stack the multi-column pricing and catering rows */
-  .plans-container, .catering-container, .contact-section { 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 10px;
-  }
-
-  /* Expand all cards and forms to fit mobile widths natively */
-  .plan-card, .catering-card, .message-form, .contact-info {
-    width: 95% !important;
-    max-width: 100%;
-    margin-bottom: 20px;
-  }
-
-  /* Make typography easy to read on mobile screens */
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.6rem; }
-  p, li { font-size: 1rem; }
-
-  /* Increase tap targets for WhatsApp and submit buttons */
-  .whatsapp-btn, .submit-btn {
-    width: 100%;
-    padding: 14px 20px;
-    font-size: 1.1rem;
-    min-height: 44px; /* Matches mobile thumb targeting best practices */
-  }
-}
-   css/* Locate the specific class managing your card images */
-.card img, 
-.product-image, 
-img[alt*="Casket"], 
-img[alt*="catering"] {
-    width: 100%;
-    height: 250px;          /* Match the current height requirement of your layout */
-    object-fit: contain;    /* This prevents any edge clipping by scaling the whole image into view */
-    background-color: #f9f9f9; /* Optional: Provides a soft background container if images have unique shapes */
-}
-css/* Gallery Section Styles */
-.gallery-section {
-    padding: 60px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
+/* ==========================================================================
+   6. PAST WORK PHOTO GALLERY
+   ========================================================================== */
+#gallery {
+    background-color: #ffffff;
 }
 
-.gallery-section h2 {
-    font-size: 2.5rem;
-    color: #1a1a1a;
-    margin-bottom: 10px;
-}
-
-.section-subtitle {
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 40px;
-}
-
-/* 3-Column Layout that drops to 2 and 1 on smaller phones */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
-/* Image Card Container */
 .gallery-item {
     position: relative;
+    height: 260px;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    height: 250px;
-    background-color: #ddd; /* Fallback color */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
-/* Making images look uniform */
 .gallery-item img {
     width: 100%;
     height: 100%;
@@ -512,25 +297,22 @@ css/* Gallery Section Styles */
     transition: transform 0.4s ease;
 }
 
-/* Smooth zoom effect on hover */
 .gallery-item:hover img {
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 
-/* Dark elegant text overlay popping up on hover */
 .gallery-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-    overflow: hidden;
-    width: 100%;
     height: 0;
-    transition: .4s ease;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+    transition: 0.4s ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .gallery-item:hover .gallery-overlay {
@@ -538,136 +320,164 @@ css/* Gallery Section Styles */
 }
 
 .gallery-overlay span {
-    color: white;
-    font-size: 1.2rem;
+    color: #ffffff;
+    font-size: 1.1rem;
     font-weight: bold;
-    letter-spacing: 1px;
-    border: 2px solid white;
+    border: 2px solid #ffffff;
     padding: 8px 16px;
     border-radius: 4px;
 }
-   /* Hero Banner Background Cover */
-.hero-section {
-    position: relative;
-    /* Link your background image here */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll; /* Keeps it smooth on mobile devices */
-    
-    /* Ensuring proper spacing for the text over the image */
-    padding: 120px 20px;
+
+/* ==========================================================================
+   7. CONTACT SECTION & INTERACTIVE FORM
+   ========================================================================== */
+#contact {
+    background-color: #f4f4f4;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 50px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.contact-form h3, .contact-info h3 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    color: #111111;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #444444;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #fcfcfc;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: #25D366;
+    background-color: #ffffff;
+}
+
+.contact-form .btn {
+    width: 100%;
+}
+
+/* Contact Info Sidebar details */
+.info-item {
+    margin-bottom: 25px;
+}
+
+.info-item p {
+    font-size: 1.1rem;
+}
+
+.info-item strong {
+    display: block;
+    color: #111111;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.map-btn {
+    display: inline-block;
+    margin-top: 10px;
+    color: #111111;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 2px solid #111111;
+    padding-bottom: 2px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.map-btn:hover {
+    color: #25D366;
+    border-color: #25D366;
+}
+
+/* ==========================================================================
+   8. FOOTER LAYOUT
+   ========================================================================== */
+footer {
+    background-color: #1a1a1a;
+    color: #888888;
+    padding: 30px 0;
     text-align: center;
-    color: #ffffff;
+    font-size: 0.95rem;
+    border-top: 1px solid #222222;
 }
 
-/* Ensure your text stands out beautifully over the image background */
-.hero-section h1 {
-    font-size: 2.8rem;
-    color: #ffffff;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-    margin-bottom: 15px;
-}
-
-.hero-section p {
-    font-size: 1.3rem;
-    color: #f1f1f1;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
-    margin-bottom: 30px;
-}
-
-/* ==========================================
-   MOBILE RESPONSIVE MEDIA QUERIES 
-   ========================================== */
-
-/* This triggers automatically on all mobile devices and smaller screens */
+/* ==========================================================================
+   9. PERFECT MOBILE RESPONSIVE ENGINE (CELLPHONES)
+   ========================================================================== */
 @media screen and (max-width: 768px) {
-    
-    /* 1. Global Spacing Fixes */
     body {
         font-size: 15px;
-        line-height: 1.5;
-        overflow-x: hidden; /* Prevents awkward horizontal side-scrolling */
-    }
-    
-    container, .container {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-        width: 100% !important;
-        box-sizing: border-box;
     }
 
-    /* 2. Navigation Menu Mobile Clean-up */
-    nav, .navbar {
-        padding: 10px 15px !important;
-        flex-direction: column; /* Stacks logo above the links */
-        gap: 10px;
+    section {
+        padding: 50px 0;
     }
 
-    nav ul, .nav-links {
-        display: flex;
-        flex-wrap: wrap; /* Keeps menu items from clipping off-screen */
+    h2 {
+        font-size: 2rem;
+    }
+
+    /* Stacks Navigation Menu Items */
+    nav .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 12px;
-        padding: 0;
     }
 
-    /* 3. Hero / Main First Page Text Sizing */
+    /* Shrinks Hero Area to fit mobile viewports safely */
     .hero-section {
-        padding: 80px 15px !important; /* Shinks padding so content fits */
+        height: auto;
+        padding: 80px 15px;
     }
 
     .hero-section h1 {
-        font-size: 2rem !important; /* Reduces heading size so it does not break words */
+        font-size: 2.2rem;
         line-height: 1.2;
     }
 
-    .hero-tagline, .hero-section p {
-        font-size: 1.1rem !important;
-        margin-bottom: 25px;
+    .hero-tagline {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
     }
 
-    /* 4. Section Headings Styling */
-    h2 {
-        font-size: 1.8rem !important;
-        margin-bottom: 15px;
-    }
-
-    /* 5. Custom Cover Plans Grid Layout Correction */
-    /* This forces the layout grids to turn into 1 straight clean column */
-    .plans-grid, .pricing-grid, .services-grid, .gallery-grid {
-        display: grid !important;
-        grid-template-columns: 1fr !important; 
-        gap: 20px !important;
-        padding: 0 10px;
-    }
-
-    /* 6. Card Containers Fix */
-    .plan-card, .pricing-card, .gallery-item {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 auto !important;
-        box-sizing: border-box;
-    }
-
-    /* 7. Contact Forms & Inputs */
-    form, .contact-container {
-        display: flex;
-        flex-direction: column;
-        width: 100% !important;
-        padding: 10px !important;
-    }
-
-    input, select, textarea, button {
-        width: 100% !important; /* Forces form fields to expand to screen width */
-        font-size: 16px !important; /* Prevents iOS Safari from forcefully zooming in on inputs */
-        box-sizing: border-box;
-    }
-
-    /* 8. Text Alignment for Contact info items */
-    .contact-info {
-        text-align: center;
-        margin-top: 25px;
-    }
-}
+    /* Snaps card grids into clean one-column stacking streams */
+    .plans-grid, 
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
