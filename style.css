@@ -456,3 +456,13 @@ h2 {
     min-height: 44px; /* Matches mobile thumb targeting best practices */
   }
 }
+   css/* Locate the specific class managing your card images */
+.card img, 
+.product-image, 
+img[alt*="Casket"], 
+img[alt*="catering"] {
+    width: 100%;
+    height: 250px;          /* Match the current height requirement of your layout */
+    object-fit: contain;    /* This prevents any edge clipping by scaling the whole image into view */
+    background-color: #f9f9f9; /* Optional: Provides a soft background container if images have unique shapes */
+}
